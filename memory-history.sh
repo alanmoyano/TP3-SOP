@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ $(echo $(echo "$1" | grep -E "[0-9]{2}:[0-9]{2}") | wc -m) -eq 6 ]; then
 
     texto=$(cat ~/ReporteDiario | grep $1)
