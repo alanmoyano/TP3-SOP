@@ -22,4 +22,4 @@ elif [ -z "$1" ]; then
 else
     echo "Error al ingresar el parámetro <hora>"
 
-fi
+   # (.)(.)
