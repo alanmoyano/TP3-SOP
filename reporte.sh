@@ -1,11 +1,14 @@
 #!/bin/bash
 
+# Se crea una constante en la que se almacenará el directorio en donde se guardarán los reportes
+DIRECTORIO=$HOME
+
 # Se verifica la existencia del reporte (por las dudas)
-if [ -e ~/ReporteDiario ]; then
+if [ -e $DIRECTORIO/ReporteDiario ]; then
 	# Se verifica que el reporte no vaya a exceder las líneas máximas por día
 	# Si las excedería, se actualiza el ReporteDiarioAnterior y se reinicia el ReporteDiario agregándole el primer reporte del día
-	if [ $(cat ~/ReporteDiario | wc -l) -eq 1399 ]; then
-		mv ~/ReporteDiario ~/ReporteDiarioAnterior
+	if [ $(cat $DIRECTORIO/ReporteDiario | wc -l) -eq 1399 ]; then
+		mv $DIRECTORIO/ReporteDiario $DIRECTORIO/ReporteDiarioAnterior
 	fi
 fi
 
@@ -31,7 +34,7 @@ disponible=$(cat $TEMPORAL | grep "Available" | cut -d ' ' -f2)
 usada=$(expr $total - $libre - $buffers - $cache)
 
 # Se genera y añade el reporte al archivo correspondiente
-echo "$hora|$total|$usada|$libre|$buffers|$cache|$disponible|" >>~/ReporteDiario
+echo "$hora|$total|$usada|$libre|$buffers|$cache|$disponible|" >>$DIRECTORIO/ReporteDiario
 
 # Se elimina el archivo temporal auxiliar
 rm $TEMPORAL
