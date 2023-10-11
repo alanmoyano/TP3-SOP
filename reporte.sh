@@ -10,7 +10,7 @@ cat /proc/meminfo | tr -s " " >$TEMPORAL
 
 # Creamos todas las variables que refieren a cada campo necesario para el reporte
 # Las formulas usadas fueron sacadas de `man free`
-hora=$(date | cut -d " " -f5 | cut -d ":" -f1,2)
+hora=$(date | cut -d " " -f4 | cut -d ":" -f1,2)
 
 total=$(cat $TEMPORAL | grep "MemTotal" | cut -d ' ' -f2)
 
