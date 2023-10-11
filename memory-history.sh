@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Se crea una constante en la que se almacenará el directorio en donde se buscarán los reportes
+DIRECTORIO=$HOME
+
 # Se verifica que se haya ingresado el parámetro hora
 if [ -z "$1" ]; then
     echo "No se ingresó el parámetro <hora>"
@@ -8,7 +11,7 @@ if [ -z "$1" ]; then
 # Se cuentan los caracteres de la salida del grep y se comparan con 6, puesto que una hora del formato correcto debería tener 5 caracteres, más 1 que es el salto de línea
 elif [ $(echo $(echo "$1" | grep -E "[0-9]{2}:[0-9]{2}") | wc -m) -eq 6 ]; then
     # Creamos la variable que contendrá el renglón de la hora especifica que se ingresó
-    texto=$(cat ~/ReporteDiario | grep $1)
+    texto=$(cat $DIRECTORIO/ReporteDiario | grep $1)
 
     # Verificamos que exista un reporte de dicha hora
     if [ -z $texto ]; then
