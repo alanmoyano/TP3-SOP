@@ -29,5 +29,5 @@ elif [ $(echo $(echo "$1" | grep -E "[0-9]{2}:[0-9]{2}") | wc -m) -eq 6 ]; then
 
 # En el caso de que las 2 verificaciones anteriores hayan fallado, se informa el error al usuario
 else
-    echo "Error al ingresar el parámetro <hora>"
+    echo "Error al ingresar el parámetro <hora> (formato: hh:mm)"
 fi
