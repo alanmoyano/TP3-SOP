@@ -24,6 +24,7 @@ hora=$(date | cut -d " " -f4 | cut -d ":" -f1,2)
 total=$(cat $TEMPORAL | grep "MemTotal" | cut -d ' ' -f2)
 libre=$(cat $TEMPORAL | grep "MemFree" | cut -d ' ' -f2)
 buffers=$(cat $TEMPORAL | grep "Buffers" | cut -d ' ' -f2)
+# Se usa la opción -w en el grep, para evitar que aparezca la línea "SwapCached" que también forma parte del archivo especial "/proc/meminfo"
 cache=$(expr $(cat $TEMPORAL | grep -w "Cached" | cut -d ' ' -f2) + $(cat $TEMPORAL | grep "SReclaimable" | cut -d ' ' -f2))
 disponible=$(cat $TEMPORAL | grep "Available" | cut -d ' ' -f2)
 
