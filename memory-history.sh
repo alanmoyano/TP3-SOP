@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Se crea una constante en la que se almacenará el directorio en donde se buscarán los reportes
+# Se crea una constante en la que se almacenará el directorio en donde se buscará el reporte
 DIRECTORIO=$HOME
 
 # Se verifica que se haya ingresado el parámetro hora
