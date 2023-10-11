@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# HORA|TOTAL|OCUPADA|LIBRE|BÚFERS|CACHE|DISPONIBLE
-
 # Creamos una constante con el nombre y ubicación del archivo temporal auxiliar
 TEMPORAL="./temporal.tmp"
 
