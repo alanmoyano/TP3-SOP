@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Se verifica la existencia del reporte (por las dudas)
+if [ -e ~/ReporteDiario ]; then
+
+	# Se verifica que el reporte no vaya a exceder las líneas máximas por día
+	# Si las excedería, se actualiza el ReporteDiarioAnterior y se reinicia el ReporteDiario agregándole el primer reporte del día
+	if [ $(cat ~/ReporteDiario | wc -l) -eq 1399 ]; then
+		mv ~/ReporteDiario ~/ReporteDiarioAnterior
+	fi
+fi
+
 # Creamos una constante con el nombre y ubicación del archivo temporal auxiliar
 TEMPORAL="./temporal.tmp"
 
@@ -22,16 +32,6 @@ usada=$(expr $total - $libre - $buffers - $cache)
 
 # Se genera y añade el reporte al archivo correspondiente
 echo "$hora|$total|$usada|$libre|$buffers|$cache|$disponible|" >>~/ReporteDiario
-
-# Se verifica la existencia del reporte (por las dudas)
-if [ -e ~/ReporteDiario ]; then
-
-	# Se verifica que el reporte no haya excedido las líneas máximas por día
-	# Si las excede, se actualiza el ReporteDiarioAnterior y se reinicia el ReporteDiario
-	if [ $(cat ~/ReporteDiario | wc -l) -ge 1440 ]; then
-		mv ~/ReporteDiario ~/ReporteDiarioAnterior
-	fi
-fi
 
 # Se elimina el archivo temporal auxiliar
 rm $TEMPORAL
