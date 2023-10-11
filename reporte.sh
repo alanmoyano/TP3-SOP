@@ -2,6 +2,8 @@
 
 # HORA|TOTAL|OCUPADA|LIBRE|BÚFERS|CACHE|DISPONIBLE
 
+echo "hola"
+
 # Creamos una constante con el nombre y ubicación del archivo temporal auxiliar
 TEMPORAL="./temporal.tmp"
 
