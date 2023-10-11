@@ -7,7 +7,6 @@ if [ -z "$1" ]; then
 # Se verifica que el parámetro ingresado posea el formato de hora deseado ('12:00' por ejemplo)
 # Se cuentan los caracteres de la salida del grep y se comparan con 6, puesto que una hora del formato correcto debería tener 5 caracteres, más 1 que es el salto de línea
 elif [ $(echo $(echo "$1" | grep -E "[0-9]{2}:[0-9]{2}") | wc -m) -eq 6 ]; then
-
     # Creamos la variable que contendrá el renglón de la hora especifica que se ingresó
     texto=$(cat ~/ReporteDiario | grep $1)
 

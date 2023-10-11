@@ -2,7 +2,6 @@
 
 # Se verifica la existencia del reporte (por las dudas)
 if [ -e ~/ReporteDiario ]; then
-
 	# Se verifica que el reporte no vaya a exceder las líneas máximas por día
 	# Si las excedería, se actualiza el ReporteDiarioAnterior y se reinicia el ReporteDiario agregándole el primer reporte del día
 	if [ $(cat ~/ReporteDiario | wc -l) -eq 1399 ]; then
